@@ -3,4 +3,6 @@ target
 /nbproject/
 .idea
 *.iml
+.classpath
+.project
 
