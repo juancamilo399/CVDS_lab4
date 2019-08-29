@@ -14,7 +14,7 @@ public class BonusScore implements GameScore {
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) {
 		
-		return 0;
+		return Math.max(0, ((correctCount*10)-(incorrectCount*5)));
 	}
 
 }

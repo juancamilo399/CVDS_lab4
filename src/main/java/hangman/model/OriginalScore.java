@@ -1,4 +1,6 @@
+
 package hangman.model;
+
 
 public class OriginalScore implements GameScore {
 
@@ -13,7 +15,7 @@ public class OriginalScore implements GameScore {
 	 * @throws ParametrosInvalidosException si alguno de los parametros es negativo  
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) {
-		return 0;
+		return Math.max(0, 100-(10*incorrectCount));
 	}
 	
 	
