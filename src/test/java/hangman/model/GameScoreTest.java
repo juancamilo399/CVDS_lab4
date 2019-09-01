@@ -23,89 +23,140 @@ import org.junit.Assert;
  */
 public class GameScoreTest {
 	
-	//@Test
-	//public void parametrosInvalidosTest() {
-	//	OriginalScore a = new OriginalScore();
-	//	int actual = a.calculateScore(-1,0);
+	@Test
+	public void parametrosInvalidosOriginalScoreTest() {
+		GameScore a = new OriginalScore();
+		try {
+			a.calculateScore(-1,0);
+		}
+		catch (HangmanException e) {
+			Assert.assertEquals(e.getMessage(), HangmanException.PARAMETROS_INVALIDOS);
+		}
 		
-//	}
+	}
+	
+	@Test
+	public void parametrosInvalidosBonusScoreTest() {
+		GameScore a = new BonusScore();
+		try {
+			a.calculateScore(1,-1);
+		}
+		catch (HangmanException e) {
+			Assert.assertEquals(e.getMessage(), HangmanException.PARAMETROS_INVALIDOS);
+		}
+		
+	}
+	
+	@Test
+	public void parametrosInvalidosPowerBonusScoreTest() {
+		GameScore a = new BonusScore();
+		try {
+			a.calculateScore(-1,-1);
+		}
+		catch (HangmanException e) {
+			Assert.assertEquals(e.getMessage(), HangmanException.PARAMETROS_INVALIDOS);
+		}
+		
+	}
 	
 	@Test
 	public void puntaje0A100OriginalScore() {
 		GameScore a = new OriginalScore();
-		int actual = a.calculateScore(0,0);
-		int actual1 = a.calculateScore(0,1);
-		int actual2 = a.calculateScore(1,2);
-		Assert.assertEquals(100, actual);
-		Assert.assertEquals(90, actual1);
-		Assert.assertEquals(80, actual2);
+		try {
+			int actual = a.calculateScore(0,0);
+			int actual1 = a.calculateScore(0,1);
+			int actual2 = a.calculateScore(1,2);
+			Assert.assertEquals(100, actual);
+			Assert.assertEquals(90, actual1);
+			Assert.assertEquals(80, actual2);
+		}
+		catch (HangmanException e) {}
+		
 		
 	}
 	@Test
 	public void puntajeMenor0OriginalScore() {
 		GameScore a = new OriginalScore();
-		int actual = a.calculateScore(0,10);
-		int actual1 = a.calculateScore(0,11);
-		int actual2 = a.calculateScore(0,9);
-		Assert.assertEquals(0, actual);
-		Assert.assertEquals(0, actual1);
-		Assert.assertEquals(10, actual2);
+		try {
+			int actual = a.calculateScore(0,10);
+			int actual1 = a.calculateScore(0,11);
+			int actual2 = a.calculateScore(0,9);
+			Assert.assertEquals(0, actual);
+			Assert.assertEquals(0, actual1);
+			Assert.assertEquals(10, actual2);
+		}
+		catch (HangmanException e) {}
 		
 	}
 	
 	@Test
 	public void puntajeMayor0BonusScore() {
 		GameScore a = new BonusScore();
-		int actual = a.calculateScore(1,0);
-		int actual1 = a.calculateScore(5,9);
-		int actual2 = a.calculateScore(0,0);
-		Assert.assertEquals(10, actual);
-		Assert.assertEquals(5, actual1);
-		Assert.assertEquals(0, actual2);
+		try {
+			int actual = a.calculateScore(1,0);
+			int actual1 = a.calculateScore(5,9);
+			int actual2 = a.calculateScore(0,0);
+			Assert.assertEquals(10, actual);
+			Assert.assertEquals(5, actual1);
+			Assert.assertEquals(0, actual2);
+		}
+		catch (HangmanException e) {}
 		
 	}
 	
 	@Test
 	public void puntajeMenor0BonusScore() {
 		GameScore a = new BonusScore();
-		int actual = a.calculateScore(5,10);
-		int actual1 = a.calculateScore(5,11);
-		int actual2 = a.calculateScore(0,0);
-		
-		Assert.assertEquals(0, actual);
-		Assert.assertEquals(0, actual1);
-		Assert.assertEquals(0, actual2);
+		try {
+			int actual = a.calculateScore(5,10);
+			int actual1 = a.calculateScore(5,11);
+			int actual2 = a.calculateScore(0,0);
+			
+			Assert.assertEquals(0, actual);
+			Assert.assertEquals(0, actual1);
+			Assert.assertEquals(0, actual2);
+		}
+		catch (HangmanException e) {}
 		
 	}
 	
 	@Test
 	public void puntaje0A500PowerBonusScore() {
 		GameScore a = new PowerBonusScore();
-		int actual = a.calculateScore(3,19);
-		int actual1 = a.calculateScore(3,18);
-		Assert.assertEquals(3, actual);
-		Assert.assertEquals(11, actual1);
+		try {
+			int actual = a.calculateScore(3,19);
+			int actual1 = a.calculateScore(3,18);
+			Assert.assertEquals(3, actual);
+			Assert.assertEquals(11, actual1);
+		}
+		catch (HangmanException e) {}
 	}
 	
 	
 	@Test
 	public void puntajeMaximo500PowerBonusScore() {
 		GameScore a = new PowerBonusScore();
-		int actual = a.calculateScore(4,0);
-		int actual1 = a.calculateScore(5,0);
-		Assert.assertEquals(500, actual);
-		Assert.assertEquals(500, actual1);
+		try {
+			int actual = a.calculateScore(4,0);
+			int actual1 = a.calculateScore(5,0);
+			Assert.assertEquals(500, actual);
+			Assert.assertEquals(500, actual1);
+		}
+		catch (HangmanException e) {}
 	}
 	
 	@Test
 	public void puntajeMenor0PowerBonusScore() {
 		GameScore a = new PowerBonusScore();
-		int actual = a.calculateScore(1,1);
-		int actual1 = a.calculateScore(0,1);
-		int actual2 = a.calculateScore(0,0);
-		Assert.assertEquals(0, actual);
-		Assert.assertEquals(0, actual1);
-		Assert.assertEquals(0, actual2);
+		try {
+			int actual = a.calculateScore(1,1);
+			int actual1 = a.calculateScore(0,1);
+			int actual2 = a.calculateScore(0,0);
+			Assert.assertEquals(0, actual);
+			Assert.assertEquals(0, actual1);
+			Assert.assertEquals(0, actual2);
+		}
+		catch (HangmanException e) {}
 		
 	}
 	

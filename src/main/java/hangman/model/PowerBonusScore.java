@@ -13,7 +13,8 @@ public class PowerBonusScore implements GameScore {
 	 * @param incorrectCount el numero de jugadas incorrectas del jugador
 	 * @throws ParametrosInvalidosException si alguno de los parametros es negativo  
 	 */
-	public int calculateScore(int correctCount, int incorrectCount) {
+	public int calculateScore(int correctCount, int incorrectCount) throws HangmanException {
+		if (correctCount < 0 || incorrectCount < 0) {throw new HangmanException(HangmanException.PARAMETROS_INVALIDOS);}
 		int tot=0;
 		for(int i=0;i<correctCount;i++) {
 			tot+=Math.pow(5, i+1);

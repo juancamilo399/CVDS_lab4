@@ -12,8 +12,8 @@ public class BonusScore implements GameScore {
 	 * @param incorrectCount el numero de jugadas incorrectas del jugador
 	 * @throws ParametrosInvalidosException si alguno de los parametros es negativo  
 	 */
-	public int calculateScore(int correctCount, int incorrectCount) {
-		
+	public int calculateScore(int correctCount, int incorrectCount) throws HangmanException {
+		if (correctCount < 0 || incorrectCount < 0) {throw new HangmanException(HangmanException.PARAMETROS_INVALIDOS);}
 		return Math.max(0, ((correctCount*10)-(incorrectCount*5)));
 	}
 
