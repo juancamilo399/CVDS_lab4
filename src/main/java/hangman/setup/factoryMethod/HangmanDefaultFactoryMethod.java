@@ -6,6 +6,8 @@ import hangman.model.dictionary.EnglishDictionaryDataSource;
 import hangman.model.dictionary.HangmanDictionary;
 import hangman.view.HangmanPanel;
 import hangman.view.HangmanStickmanPanel;
+import hangman.model.GameScore;
+import hangman.model.OriginalScore;
 
 public class HangmanDefaultFactoryMethod extends HangmanFactoryMethod {
     @Override
@@ -21,5 +23,9 @@ public class HangmanDefaultFactoryMethod extends HangmanFactoryMethod {
     @Override
     public HangmanPanel createHangmanPanel() {
         return new HangmanStickmanPanel();
+    }
+    @Override
+    public GameScore createGameScore(){
+    	return new OriginalScore();
     }
 }
