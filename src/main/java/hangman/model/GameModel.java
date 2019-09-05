@@ -98,7 +98,14 @@ public class GameModel {
     //getScore
     //purpose: returns current score value
     public int getScore() {
-        return gameScore.calculateScore(correctCount, incorrectCount);
+    	int r=0;
+    	try {
+    		r=gameScore.calculateScore(correctCount, incorrectCount);	
+    	}
+    	catch(HangmanException e){
+    		System.out.println(e.getMessage());
+    	}
+    	return r;
     }
 
     //name: selectRandomWord()
@@ -124,8 +131,16 @@ public class GameModel {
     //method: getGameScore
     //purpose: return current score
     public int getGameScore() {
-        return gameScore.calculateScore(correctCount, incorrectCount);
+    	int r=0;
+    	try {
+    		r=gameScore.calculateScore(correctCount, incorrectCount);	
+    	}
+    	catch(HangmanException e){
+    		System.out.println(e.getMessage());
+    	}
+    	return r;
     }
+    
 
     //method: setGameScore
     //purpose: set current game score
